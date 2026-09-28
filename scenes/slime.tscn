@@ -1,0 +1,143 @@
+[gd_scene format=3 uid="uid://cr2kpfbqn6n5d"]
+
+[ext_resource type="Texture2D" uid="uid://p0ccwkmlstk0" path="res://assets/смерть слайма.png" id="1_fd6lc"]
+[ext_resource type="Script" uid="uid://tfdwmxp6ygh1" path="res://scripts/slime.gd" id="1_gstla"]
+[ext_resource type="Texture2D" uid="uid://b2w0vp1s8igti" path="res://assets/слаймы.png" id="2_gstla"]
+[ext_resource type="PackedScene" uid="uid://82ekomyaynfg" path="res://scenes/encouner.tscn" id="2_v5wyi"]
+[ext_resource type="Texture2D" uid="uid://hs6hr1xwhhlt" path="res://assets/слайм прыжок 2 фрейм.png" id="3_v5wyi"]
+[ext_resource type="Texture2D" uid="uid://1r6lnynddnnl" path="res://assets/слайм прыжок 1 фрейм.png" id="4_0l8pv"]
+[ext_resource type="Texture2D" uid="uid://c0qyn1avqggoc" path="res://assets/слайм прыжок 2.5 фрейм.png" id="5_vnioy"]
+[ext_resource type="Texture2D" uid="uid://doo2p62kb6li4" path="res://assets/слайм прыжок 3 фрейм.png" id="6_2xjuo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a02ik"]
+atlas = ExtResource("1_fd6lc")
+region = Rect2(0, 25, 25, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pu8ps"]
+atlas = ExtResource("1_fd6lc")
+region = Rect2(25, 25, 25, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g40cl"]
+atlas = ExtResource("1_fd6lc")
+region = Rect2(50, 25, 25, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cxm07"]
+atlas = ExtResource("1_fd6lc")
+region = Rect2(75, 25, 25, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g2qvl"]
+atlas = ExtResource("2_gstla")
+region = Rect2(0, 25, 25, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tyl0w"]
+atlas = ExtResource("2_gstla")
+region = Rect2(25, 25, 25, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fur4c"]
+atlas = ExtResource("2_gstla")
+region = Rect2(50, 25, 25, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2v7ff"]
+atlas = ExtResource("2_gstla")
+region = Rect2(75, 25, 25, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_35t6e"]
+atlas = ExtResource("3_v5wyi")
+region = Rect2(0, 0, 25, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pbccl"]
+atlas = ExtResource("4_0l8pv")
+region = Rect2(0, 0, 25, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_24adn"]
+atlas = ExtResource("5_vnioy")
+region = Rect2(25, 0, 25, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w8bnk"]
+atlas = ExtResource("6_2xjuo")
+region = Rect2(0, 0, 25, 50)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xrivr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a02ik")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pu8ps")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g40cl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cxm07")
+}],
+"loop": 0,
+"name": &"death",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g2qvl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tyl0w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fur4c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2v7ff")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_35t6e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pbccl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_24adn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w8bnk")
+}],
+"loop": 2,
+"name": &"jump",
+"speed": 8.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xrivr"]
+radius = 6.0
+height = 20.0
+
+[node name="Slime" type="Node2D" unique_id=352373003]
+visibility_layer = 3
+script = ExtResource("1_gstla")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1828573441]
+position = Vector2(2, -11)
+sprite_frames = SubResource("SpriteFrames_xrivr")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="RayCast_left" type="RayCast2D" parent="." unique_id=859409560]
+position = Vector2(2, -6)
+target_position = Vector2(-12, 0)
+
+[node name="RayCast_right" type="RayCast2D" parent="." unique_id=1760284229]
+position = Vector2(3, -6)
+target_position = Vector2(12, 0)
+
+[node name="Encouner" parent="." unique_id=551627524 instance=ExtResource("2_v5wyi")]
+collision_layer = 1
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Encouner" unique_id=1679916721]
+position = Vector2(2, -6)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_xrivr")

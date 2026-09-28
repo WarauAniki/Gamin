@@ -1,0 +1,15 @@
+ProgressBar
+AnimationPlayer
+Node
+Button
+Label
+AnimatedSprite2D
+Area2D
+RayCast2D
+CollisionShape2D
+Timer
+TileMap
+Camera2D
+DirectionalLight2D
+CharacterBody2D
+Node2D

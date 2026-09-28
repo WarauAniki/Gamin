@@ -1,0 +1,8 @@
+res://scenes/encouner.tscn
+res://scenes/battle.tscn
+res://scenes/problem.gd
+res://scenes/battle.gd
+res://scenes/slime_attack.tscn
+res://scripts/battle.gd
+res://scenes/game.tscn
+res://scripts/game.gd
