@@ -64,6 +64,11 @@ func _switch_to_scene(new_scene_resource: PackedScene) -> void:
 				var encounter = slime.get_child(3)
 				encounter.to_the_battle.connect(go_to_battle)
 
+	if new_scene_resource == BATTLE_SCENE:
+		var main_problem = current_scene.get_child(5)
+		var lost_the_battle = main_problem.get_child(0)
+		lost_the_battle.death.connect(go_to_open_world)
+
 
 # Функции-помощники для вызова из других мест
 func go_to_battle() -> void:

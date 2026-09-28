@@ -24,6 +24,8 @@ var answer_arrangment = 3
 
 var hp = 3
 
+signal death
+
 var button = 0
 
 func _Quiz():
@@ -84,6 +86,7 @@ func _on_animation_finished():
 		hp -= 1
 		health_bar.value = hp
 	else:
+		death.emit()
 		print("You died")
 		#go_to_open_world
 		#emit signal to the Game Scene and make it change to Open World scene
