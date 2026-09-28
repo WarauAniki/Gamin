@@ -73,15 +73,20 @@ func _process(delta: float) -> void:
 		print("Sorry, Inorrect One!")
 		slime_attack.visible = true
 		slime_attack_movment.play("slime_attack")
+		animated_slime_attack.animation_finished.connect(_on_animation_finished)
 		animated_slime_attack.play("new_animation")
 		
-		if hp != 0:
-			hp -= 1
-			health_bar.value = hp
-		else:
-			print("You died")
-			#go_to_open_world
-			#emit signal to the Game Scene and make it change to Open World scene
+
+
+
+func _on_animation_finished():
+	if hp != 0:
+		hp -= 1
+		health_bar.value = hp
+	else:
+		print("You died")
+		#go_to_open_world
+		#emit signal to the Game Scene and make it change to Open World scene
 
 func _on_button_1_pressed() -> void:
 	button = 1

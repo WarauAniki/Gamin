@@ -1,5 +1,6 @@
 78098b89c88a74ebe8c20117b8754620
-::res://::1790612106
+::res://::1790622006
+README.md::TextFile::-1::1790619668::0::1::::<><><>0<>0<><>::
 ::res://assets/::1790112382
 анимация плача при проигрыше.png::CompressedTexture2D::9046157456837150403::1789328960::1789328961::1::::<><><>0<>0<>c7a4a6f5ebbeab0bb381592ad38a42a6<>res://.godot/imported/анимация плача при проигрыше.png-30ce0ada5c921e4b09498e0be7934922.ctex::
 атака.png::CompressedTexture2D::7244422802934083135::1789328976::1789328976::1::::<><><>0<>0<>8c6c67a95cfb897f1963f3a50399caeb<>res://.godot/imported/атака.png-ca464573815a57d37bdfa560f91c6074.ctex::
@@ -15,19 +16,19 @@
 слаймы.png::CompressedTexture2D::4328492027877880630::1789328981::1789328981::1::::<><><>0<>0<>796142ca72f6e5d99f9ee4cc60998989<>res://.godot/imported/слаймы.png-8ecc7ffb2f7072c212a8197a4f641f28.ctex::
 смерть слайма.png::CompressedTexture2D::1104568275517724793::1789328960::1789328961::1::::<><><>0<>0<>3cb9526f9862c724eb823a5f0655394e<>res://.godot/imported/смерть слайма.png-5b67c9c1309216a3cc139b05188a4858.ctex::
 ходьба и идл.png::CompressedTexture2D::1976841358170713851::1789328952::1789328953::1::::<><><>0<>0<>23482b7e4c8b90768350d560c62f2ddc<>res://.godot/imported/ходьба и идл.png-ce8c21b7d0eed44f286d22517c444327.ctex::
-::res://scenes/::1790612106
+::res://scenes/::1790613301
 attack.tscn::PackedScene::4382587302073810915::1789905275::0::1::::<><><>0<>0<><>::uid://dbhit5om4guot::::res://assets/атака.png
-battle.tscn::PackedScene::2173081955531331572::1790612119::0::1::::<><><>0<>0<><>::uid://dbh2qwy3abfxt::::res://scenes/battle.gd<>uid://cgnob804dxy23::::res://assets/мап тайлы 16.png<>uid://ddxc8oa80eycy::::res://assets/Баттл скрин.png<>uid://cr2kpfbqn6n5d::::res://scenes/slime.tscn<>uid://l2hwtoqq8ael::::res://scenes/player.tscn<>uid://cabfh76jbpyq0::::res://scripts/problem.gd<>uid://8o8cnck2en8k::::res://scenes/slime_attack.tscn
+battle.tscn::PackedScene::2173081955531331572::1790612511::0::1::::<><><>0<>0<><>::uid://cgnob804dxy23::::res://assets/мап тайлы 16.png<>uid://ddxc8oa80eycy::::res://assets/Баттл скрин.png<>uid://cr2kpfbqn6n5d::::res://scenes/slime.tscn<>uid://l2hwtoqq8ael::::res://scenes/player.tscn<>uid://cabfh76jbpyq0::::res://scripts/problem.gd<>uid://8o8cnck2en8k::::res://scenes/slime_attack.tscn
 encouner.tscn::PackedScene::2372231520280761124::1790285213::0::1::::<><><>0<>0<><>::
-game.tscn::PackedScene::6226326532882254361::1790106633::0::1::::<><><>0<>0<><>::uid://btyqcrablubvy::::res://scripts/game.gd
+game.tscn::PackedScene::6226326532882254361::1790613301::0::1::::<><><>0<>0<><>::uid://btyqcrablubvy::::res://scripts/game.gd
 open_world.tscn::PackedScene::7058338306771498911::1789936129::0::1::::<><><>0<>0<><>::uid://cgnob804dxy23::::res://assets/мап тайлы 16.png<>uid://pt3jqxw8r0m0::::res://scripts/open_world.gd<>uid://drf20jfjr16pj::::res://scripts/fall.gd<>uid://cr2kpfbqn6n5d::::res://scenes/slime.tscn<>uid://l2hwtoqq8ael::::res://scenes/player.tscn
 player.tscn::PackedScene::828280806113803035::1789936074::0::1::::<><><>0<>0<><>::uid://b010qwy77jgc1::::res://scripts/player.gd<>uid://3fuj2ljcdt52::::res://assets/ходьба и идл.png
 slime.tscn::PackedScene::6022424130335733435::1790105869::0::1::::<><><>0<>0<><>::uid://p0ccwkmlstk0::::res://assets/смерть слайма.png<>uid://tfdwmxp6ygh1::::res://scripts/slime.gd<>uid://b2w0vp1s8igti::::res://assets/слаймы.png<>uid://82ekomyaynfg::::res://scenes/encouner.tscn<>uid://hs6hr1xwhhlt::::res://assets/слайм прыжок 2 фрейм.png<>uid://1r6lnynddnnl::::res://assets/слайм прыжок 1 фрейм.png<>uid://c0qyn1avqggoc::::res://assets/слайм прыжок 2.5 фрейм.png<>uid://doo2p62kb6li4::::res://assets/слайм прыжок 3 фрейм.png
 slime_attack.tscn::PackedScene::2347141047344778032::1790544283::0::1::::<><><>0<>0<><>::uid://35f5l65lvy63::::res://assets/слайм атака.png
-::res://scripts/::1790612106
+::res://scripts/::1790613324
 battle.gd::GDScript::7245570664364173757::1790291125::0::1::::<>Area2D<><>0<>0<><>::
 fall.gd::GDScript::8364478766215337667::1789418655::0::1::::<>Area2D<><>0<>0<><>::
-game.gd::GDScript::3770529715343099734::1790105869::0::1::::<>Node<><>0<>0<><>::
+game.gd::GDScript::3770529715343099734::1790613324::0::1::::<>Node<><>0<>0<><>::
 open_world.gd::GDScript::1093772856788706349::1789409962::0::1::::<>Node<><>0<>0<><>::
 player.gd::GDScript::4196363287857171006::1790106464::0::1::::<>CharacterBody2D<><>0<>0<><>::
 problem.gd::GDScript::4775223559708443009::1790544522::0::1::::<>Label<><>0<>0<><>::

@@ -69,4 +69,7 @@ position = Vector2(134, 47)
 [node name="Player" parent="." unique_id=1657942203 instance=ExtResource("5_mpl7x")]
 position = Vector2(-21, 30)
 
+[node name="Slime2" parent="." unique_id=1502803701 instance=ExtResource("4_qllrw")]
+position = Vector2(359, -49)
+
 [connection signal="body_entered" from="Abyss Fall" to="Abyss Fall" method="_on_body_entered"]

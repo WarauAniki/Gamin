@@ -51,14 +51,23 @@ func _switch_to_scene(new_scene_resource: PackedScene) -> void:
 #		encounter.to_the_battle.connect(go_to_battle)
 
 	if new_scene_resource == OPEN_WORLD_SCENE:
-		var slime = current_scene.get_child(2)
-		var encounter = slime.get_child(3)
-		encounter.to_the_battle.connect(go_to_battle)
+	#	var slime = current_scene.get_child(2)
+	#	var encounter = slime.get_child(3)
+
+	#	var slime2 = current_scene.get_child(4)
+	#	var encounter2 = slime2.get_child(3)
+		
+	#	encounter.to_the_battle.connect(go_to_battle)
+	#	encounter2.to_the_battle.connect(go_to_battle)
+		for slime in current_scene.get_children():
+			if slime.name == "Slime" or slime.name == "Slime2":
+				var encounter = slime.get_child(3)
+				encounter.to_the_battle.connect(go_to_battle)
 
 
 # Функции-помощники для вызова из других мест
 func go_to_battle() -> void:
-	print("game signal recived")
+#	print("game signal recived")
 #	player.can_move = false
 	_switch_to_scene(BATTLE_SCENE)
 

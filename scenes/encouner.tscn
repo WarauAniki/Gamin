@@ -9,7 +9,9 @@ signal to_the_battle
 
 func _on_body_entered(body: Node2D) -> void:
 #	body.get_node(\"CollisionShape2D\").queue_free()
-#SS	print(\"Fight!\")
+#	print(\"Fight!\", body.name)
+	if body.name != \"Player\":
+		return
 	timer.start()
 	
 func _on_timer_timeout():
