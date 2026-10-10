@@ -9,7 +9,11 @@ extends Label
 @onready var slime_attack_movment: AnimationPlayer = $SlimeAttack/Slime_Attack_Movment
 @onready var animated_slime_attack: AnimatedSprite2D = $SlimeAttack/AnimatedSprite2D
 
+@onready var attack: Node2D = $Attack
+@onready var animated_attack: AnimatedSprite2D = $Attack/AnimatedSprite2D
+
 @onready var health_bar: ProgressBar = $HealthBar
+@onready var enemy_health: ProgressBar = $EnemyHealth
 
 var Problem_Library = ["1+1", "2+2", "3+3","4+4", "5+5", "6+6", "7+7", "8+8", "9+9"]
 var Answer_Library = [ "2", "4", "6", "8", "10", "12", "14", "16", "18"]
@@ -23,8 +27,10 @@ var my_button_is_pressed = false
 var answer_arrangment = 3
 
 var hp = 3
+var enemy_hp = 3
 
 signal death
+signal enemy_death
 
 var button = 0
 
@@ -58,7 +64,10 @@ func _ready() -> void:
 	_Quiz()
 	slime_attack.visible = false
 	animated_slime_attack.play("new_animation")	#Have no idea why is this needed,but animation doesn't work as needed
+	attack.visible = false
+	animated_attack.play("new_animation")
 	health_bar.value = hp
+	enemy_health.value = enemy_hp
 
 
 func _process(delta: float) -> void:
@@ -70,18 +79,30 @@ func _process(delta: float) -> void:
 		my_button_is_pressed = false
 		_Quiz()
 		slime_attack.visible = false
+		attack.visible = false
+		if enemy_hp != 0:
+			enemy_hp -= 1
+			enemy_health.value = enemy_hp
+			animated_attack.play("default")
+			attack.visible = true
+			animated_attack.animation_finished.connect(_on_attack_animation_finished)
+			animated_attack.play("new_animation")
+		else:
+			enemy_death.emit()
+			print("Enemy died")
 	elif button != answer_arrangment and my_button_is_pressed == true:
 		my_button_is_pressed = false
 		print("Sorry, Inorrect One!")
 		slime_attack.visible = true
 		slime_attack_movment.play("slime_attack")
-		animated_slime_attack.animation_finished.connect(_on_animation_finished)
+		animated_slime_attack.animation_finished.connect(_on_enemy_animation_finished)
 		animated_slime_attack.play("new_animation")
 		
 
+func _on_attack_animation_finished():
+	attack.visible = false
 
-
-func _on_animation_finished():
+func _on_enemy_animation_finished():
 	if hp != 0:
 		hp -= 1
 		health_bar.value = hp

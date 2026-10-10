@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://l2hwtoqq8ael" path="res://scenes/player.tscn" id="4_a12nh"]
 [ext_resource type="Script" uid="uid://cabfh76jbpyq0" path="res://scripts/problem.gd" id="6_6vh42"]
 [ext_resource type="PackedScene" uid="uid://8o8cnck2en8k" path="res://scenes/slime_attack.tscn" id="7_4k1nj"]
+[ext_resource type="PackedScene" uid="uid://b3o7tp47cbr28" path="res://scenes/attack.tscn" id="7_f4pi3"]
 
 [sub_resource type="GDScript" id="GDScript_6vh42"]
 script/source = "extends Area2D
@@ -106,7 +107,7 @@ _data = {
 bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_13qdw"]
-bg_color = Color(0.6945704, 0.45247728, 1, 1)
+bg_color = Color(0.8134257, 0.34957698, 1, 1)
 
 [node name="Battle" type="Area2D" unique_id=668068004]
 script = SubResource("GDScript_6vh42")
@@ -138,12 +139,12 @@ position = Vector2(-74, 32)
 [node name="Main Fight Mechanic" type="Node" parent="." unique_id=773332947]
 
 [node name="Problem" type="Label" parent="Main Fight Mechanic" unique_id=1611086893]
-modulate = Color(1, 0, 1, 1)
 z_index = 6
 offset_left = -17.0
 offset_top = -56.0
 offset_right = 49.0
 offset_bottom = -33.0
+theme_override_colors/font_color = Color(1, 0, 1, 1)
 text = "Problem"
 script = ExtResource("6_6vh42")
 
@@ -152,6 +153,9 @@ position = Vector2(74, 79)
 
 [node name="Slime_Attack_Movment" type="AnimationPlayer" parent="Main Fight Mechanic/Problem/SlimeAttack" unique_id=567520426]
 libraries/ = SubResource("AnimationLibrary_yahae")
+
+[node name="Attack" parent="Main Fight Mechanic/Problem" unique_id=776967495 instance=ExtResource("7_f4pi3")]
+position = Vector2(94, 75)
 
 [node name="Var 1" type="Label" parent="Main Fight Mechanic/Problem" unique_id=731397659]
 z_index = 6
@@ -164,6 +168,7 @@ offset_left = 62.984
 offset_top = 12.763
 offset_right = 42.0
 offset_bottom = 31.379997
+theme_override_colors/font_color = Color(1, 0, 1, 1)
 text = "Var 1
 "
 
@@ -174,6 +179,7 @@ offset_left = -2.0
 offset_top = 52.0
 offset_right = 38.0
 offset_bottom = 75.0
+theme_override_colors/font_color = Color(1, 0, 1, 1)
 text = "Var 2"
 
 [node name="HealthBar" type="ProgressBar" parent="Main Fight Mechanic/Problem" unique_id=1648674897]
@@ -187,6 +193,25 @@ offset_left = 24.726006
 offset_top = -1.3620033
 offset_right = 60.726006
 offset_bottom = 5.6379967
+theme_override_colors/font_color = Color(0.9490196, 0, 0.9490196, 1)
+theme_override_styles/background = SubResource("StyleBoxFlat_xrivr")
+theme_override_styles/fill = SubResource("StyleBoxFlat_13qdw")
+max_value = 3.0
+value = 2.0
+show_percentage = false
+
+[node name="EnemyHealth" type="ProgressBar" parent="Main Fight Mechanic/Problem" unique_id=1212956756]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -1.511
+anchor_top = 2.4940002
+anchor_right = -1.511
+anchor_bottom = 2.4940002
+offset_left = 172.72601
+offset_top = -1.3620033
+offset_right = 208.726
+offset_bottom = 5.6379967
+theme_override_colors/font_color = Color(0.9490196, 0, 0, 1)
 theme_override_styles/background = SubResource("StyleBoxFlat_xrivr")
 theme_override_styles/fill = SubResource("StyleBoxFlat_13qdw")
 max_value = 3.0

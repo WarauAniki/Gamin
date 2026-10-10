@@ -68,6 +68,7 @@ func _switch_to_scene(new_scene_resource: PackedScene) -> void:
 		var main_problem = current_scene.get_child(5)
 		var lost_the_battle = main_problem.get_child(0)
 		lost_the_battle.death.connect(go_to_open_world)
+		lost_the_battle.enemy_death.connect(go_to_open_world)
 
 
 # Функции-помощники для вызова из других мест

@@ -5,3 +5,5 @@ res://scenes/encouner.tscn
 res://scenes/battle.tscn
 res://scenes/slime_attack.tscn
 res://scripts/problem.gd
+res://scenes/attack.tscn
+res://scripts/encounter.gd
