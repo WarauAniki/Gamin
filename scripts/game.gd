@@ -8,11 +8,15 @@ extends Node
 const OPEN_WORLD_SCENE = preload("res://scenes/open_world.tscn")
 const BATTLE_SCENE = preload("res://scenes/battle.tscn")
 
-# Переменная для хранения текущей активной сцены
+#Переменная для хранения текущей активной сцены
 var current_scene: Node = null
+# Позиция игрока для сохранения положения в пространстве после боя
+var x_position = -20
+var y_position = 30
+#var player_position = Vector2(x_position, y_position)
 
 func _ready() -> void:
-	# При запуске игры по умолчанию загружаем открытый мир
+	#При запуске игры по умолчанию загружаем открытый мир
 	_switch_to_scene(OPEN_WORLD_SCENE)
 
 # Главная функция для смены сцен
@@ -51,6 +55,8 @@ func _switch_to_scene(new_scene_resource: PackedScene) -> void:
 #		encounter.to_the_battle.connect(go_to_battle)
 
 	if new_scene_resource == OPEN_WORLD_SCENE:
+#		player_position = Vector2(x_position, y_position)
+#		current_scene.get_child(3).position = player_position
 	#	var slime = current_scene.get_child(2)
 	#	var encounter = slime.get_child(3)
 
@@ -63,18 +69,33 @@ func _switch_to_scene(new_scene_resource: PackedScene) -> void:
 			if slime.name == "Slime" or slime.name == "Slime2":
 				var encounter = slime.get_child(3)
 				encounter.to_the_battle.connect(go_to_battle)
+				#player_position = current_scene.get_child(3).position
+				
 
 	if new_scene_resource == BATTLE_SCENE:
 		var main_problem = current_scene.get_child(5)
 		var lost_the_battle = main_problem.get_child(0)
 		lost_the_battle.death.connect(go_to_open_world)
 		lost_the_battle.enemy_death.connect(go_to_open_world)
+		lost_the_battle.enemy_death.connect(enemy_died_in_battle)
+
+
+func player_died_in_battle():
+	current_scene.get_child(3).position = Vector2(-21, 30)
+
+
+func enemy_died_in_battle():
+	current_scene.get_child(2).queue_free()
+	current_scene.get_child(3).position = Vector2(x_position, y_position)
 
 
 # Функции-помощники для вызова из других мест
 func go_to_battle() -> void:
 #	print("game signal recived")
 #	player.can_move = false
+	x_position = current_scene.get_child(3).position.x
+	y_position = current_scene.get_child(3).position.y
+	print(x_position, ", ", y_position)
 	_switch_to_scene(BATTLE_SCENE)
 
 func go_to_open_world() -> void:
